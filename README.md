@@ -1,14 +1,14 @@
 <h3 align="center">
-  Capítulo II - riando a API com NodeJS
+  Teste HIVELABS
 </h3>
 
 <h1 align="center">
-  Capítulo II da trilha de Node.js do Ignite da Rocketseat. Criando a API Rentalx
+  Teste para vaga backend com Node.Js
 </h1>
 
 ## Sobre o projeto
-
-## API desenvolvida durante o ignite da Rocketseat
+Teste para vaga backend com Node.Js da empresa HIVELABS.
+## API 
 
 ## Tecnologias utilizadas
 
@@ -20,7 +20,7 @@
 **Clone o projeto e acesse a pasta**
 
 ```bash
-$ git clone https://github.com/jandersonp/rentalx && cd rentalx
+$ git clone https://github.com/jandersonp/node-backend-hivelabs && cd node-backend-hivelabs
 ```
 
 **Siga os passos abaixo**
