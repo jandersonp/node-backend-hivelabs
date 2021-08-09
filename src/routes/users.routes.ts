@@ -1,29 +1,29 @@
 import { Router } from 'express';
-import { v4 as uuidV4 } from 'uuid';
 
-import { User } from '../model/User';
+import { UsersRepository } from '../repositories/UsersRepository';
 
 const usersRoutes = Router();
 
-const users: User[] = [];
+const usersRepository = new UsersRepository();
 
 usersRoutes.post('/', (request, response) => {
   const { name, lastname, nickname, address, bio } = request.body;
 
-  const user: User = {
-    id: uuidV4(),
-    name,
-    lastname,
-    nickname,
-    address,
-    bio,
-    createdAt: new Date(),
-    updatedAt: new Date(),
-  };
+  const userAlreadyExists = usersRepository.findByNickname(nickname);
 
-  users.push(user);
+  if (userAlreadyExists) {
+    return response.status(400).json({ error: 'User already exists' });
+  }
 
-  return response.status(201).send({ name, lastname, nickname, address, bio });
+  usersRepository.create({ name, lastname, nickname, address, bio });
+
+  return response.status(201).send();
+});
+
+usersRoutes.get('/', (request, response) => {
+  const all = usersRepository.list();
+
+  return response.json(all);
 });
 
 export { usersRoutes };
